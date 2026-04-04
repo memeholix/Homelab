@@ -7,7 +7,7 @@ Documentation of home network setup including DNS, firewall, and topology.
 | Device | Model | Role |
 |---|---|---|
 | Router | TP-Link Archer BE6100 | Gateway, DHCP, DNS forwarding |
-| Server | Raspberry Pi 5 | Pi-hole, Jellyfin, Wazuh, Grafana |
+| Server | Raspberry Pi 5 | Pi-hole, Jellyfin, Prometheus, Grafana, Homer |
 | Workstation | Lenovo ThinkPad | Cybersecurity platform |
 
 ## Network Topology
@@ -15,8 +15,7 @@ Documentation of home network setup including DNS, firewall, and topology.
 | Device | IP | Role |
 |---|---|---|
 | Router | 192.168.0.1 | Gateway |
-| Raspberry Pi 5 | 192.168.0.23 (static)
- | Server |
+| Raspberry Pi 5 | 192.168.0.23 (static) | Server |
 | ThinkPad | 192.168.0.231 | Workstation |
 
 ## DNS Configuration
@@ -25,10 +24,8 @@ All DNS traffic routes through Pi-hole for network-wide ad and malware blocking.
 
 | Setting | Value |
 |---|---|
-| Primary DNS | 192.168.0.231 (ThinkPad Pi-hole — temporary) |
+| Primary DNS | 192.168.0.23 (Raspberry Pi — Pi-hole) |
 | Secondary DNS | 208.67.222.222 (OpenDNS — fallback) |
-
-Primary DNS will move to the Raspberry Pi once setup is complete.
 
 ## Firewall
 
@@ -55,7 +52,4 @@ No lab traffic can reach the home network or internet.
 
 ## Planned Improvements
 
-- Assign static IP to Raspberry Pi
-- Move primary DNS to Pi once migration is complete
-- Set up VLANs to separate IoT devices from main network
-- Configure Wazuh to moniter network traffic
+- Configure Wazuh to monitor network traffic
