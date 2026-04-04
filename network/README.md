@@ -57,4 +57,4 @@ No lab traffic can reach the home network or internet.
 - Assign static IP to Raspberry Pi
 - Move primary DNS to Pi once migration is complete
 - Set up VLANs to separate IoT devices from main network
-- Configure Wazuh to monit
+- Configure Wazuh to moniter network traffic
