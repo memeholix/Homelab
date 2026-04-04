@@ -23,7 +23,13 @@ A personal homelab built for learning network security, self-hosted services, an
  - Pi-hole Docker instance (temporary during Pi migration)
 
 ##PI SETUP
- - Coming soon
+- OS hardening — UFW, fail2ban, auditd, auto updates, SSH hardening
+- Docker and Portainer for container management
+- Pi-hole — network-wide DNS filtering with 831,745+ blocked domains
+- Jellyfin — self-hosted media server with movies, shows, music and books
+- Tailscale — secure remote access via WireGuard VPN
+- Wazuh SIEM — coming soon
+- Prometheus + Grafana — coming soon
 
 ##GOALS
  - Build hands-on experience with offensive and defensive security operations
