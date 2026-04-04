@@ -15,7 +15,8 @@ Documentation of home network setup including DNS, firewall, and topology.
 | Device | IP | Role |
 |---|---|---|
 | Router | 192.168.0.1 | Gateway |
-| Raspberry Pi 5 | TBD | Server |
+| Raspberry Pi 5 | 192.168.0.23 (static)
+ | Server |
 | ThinkPad | 192.168.0.231 | Workstation |
 
 ## DNS Configuration

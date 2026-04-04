@@ -42,6 +42,12 @@ Total domains blocked: 831,706+
 Modified /etc/systemd/logind.conf to set HandleLidSwitch=ignore
 so Pi-hole keeps running when the laptop lid is closed.
 
+## Status
+
+Decomissioned. Pihole migrated to Raspberry Pi 5 (192.168.0.23) on January 2025.
+Router DNS updated to point to Pi permanently.
+Docker container and volumes removed from ThinkPad.
+
 ## Notes
 
 - systemd-resolved disabled to free up port 53
