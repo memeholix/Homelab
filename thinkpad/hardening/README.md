@@ -1,29 +1,32 @@
 # ThinkPad Hardening
 
 OS hardening steps applied to Ubuntu Desktop 24.04 on a Lenovo ThinkPad.
-The goal is to reduce the attack surface before installing any security tools.
+Fresh install — previous Ubuntu configuration wiped and rebuilt from scratch.
 
 ## System Updates
 
 Kept the system fully patched to eliminate known vulnerabilities.
 
 - Updated package lists and upgraded all installed packages
+- Enabled unattended-upgrades for automatic security updates
 - Removed unused dependency packages with autoremove
 
 ## Firewall — UFW
 
-Configured UFW (Uncomplicated Firewall) to deny all incoming traffic by default,
+Configured UFW to deny all incoming traffic by default,
 only allowing what is explicitly needed.
 
 | Rule | Reason |
 |---|---|
 | Default deny incoming | Block all unsolicited inbound connections |
 | Allow SSH | Remote access to the machine |
+| Allow 1514 | Wazuh agent communication |
+| Allow 1515 | Wazuh agent enrollment |
+| Allow 443 | Wazuh dashboard HTTPS access |
 
 ## Brute Force Protection — fail2ban
 
 Installed fail2ban to automatically ban IPs that repeatedly fail authentication.
-Protects against brute force attacks on SSH and other services.
 
 - Enabled on boot
 - Default configuration monitors SSH login attempts
@@ -49,9 +52,6 @@ Modified /etc/ssh/sshd_config to lock down remote access.
 | X11Forwarding | no | Disable graphical forwarding, known attack surface |
 | MaxAuthTries | 3 | Limit login attempts per connection |
 
-## Tools Used
+## SSH Key Authentication
 
-- UFW — firewall management
-- fail2ban — brute force protection
-- auditd — system call auditing
-- audispd-plugins — audit log forwarding
+Generated ed25519 key pair on ThinkPad for SSH access to other homelab devices.
